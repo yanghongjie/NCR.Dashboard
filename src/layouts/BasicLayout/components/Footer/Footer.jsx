@@ -15,7 +15,7 @@ export default () => {
       }}
     >
       <div style={{ filter: 'grayscale(100%)', opacity: 0.3 }}>
-        <Logo isDark />
+        {/* <Logo isDark /> */}
       </div>
       <div
         style={{
@@ -25,9 +25,9 @@ export default () => {
           textAlign: 'right',
         }}
       >
-        阿里巴巴集团
+        {/* 阿里巴巴集团
         <br />
-        © 2018 版权所有
+        © 2018 版权所有 */}
       </div>
     </div>
   );

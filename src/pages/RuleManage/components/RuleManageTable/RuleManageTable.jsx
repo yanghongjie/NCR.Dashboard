@@ -45,6 +45,10 @@ export default class RuleManageTable extends Component {
     this.field = new Field(this);
   }
 
+  componentDidMount() {
+    this.handleSubmit(this.state.currentPageIndex);
+  }
+
   handleSubmit = (current) => {
     this.setState({
       currentPageIndex:current 
@@ -67,7 +71,7 @@ export default class RuleManageTable extends Component {
       axios.post('http://localhost:33304/RuleManage/SaveRule', values)
       .then(function ({data}) {
         if(data.success){
-          that.onClose();
+          that.editClose();
           that.handleSubmit(that.state.currentPageIndex);
         }
         else{
@@ -75,21 +79,21 @@ export default class RuleManageTable extends Component {
         }
       })
       .catch(function (error) {
+        console.log(error);
         Message.error('网络问题，请稍后重试！');
       });
 
     });
   };
 
-  onConfirm = (e) => {
-    Message.success('删除成功！')
-  }
+  addOpen = () => {
+    this.field.setValues({  });
+    this.setState({
+      visible: true,
+    });
+  };
 
-  onCancel = (e) => {
-    console.log('cancel');
-  }
-
-  onOpen = (index, record) => {
+  editOpen = (index, record) => {
     this.field.setValues({ ...record });
     this.setState({
       visible: true,
@@ -97,7 +101,7 @@ export default class RuleManageTable extends Component {
     });
   };
 
-  onClose = () => {
+  editClose = () => {
     this.setState({
       visible: false,
     });
@@ -106,7 +110,7 @@ export default class RuleManageTable extends Component {
   renderOper = (value, index, record) => {
     return (
       <div>
-      <Button type="primary" size="medium" onClick={() => this.onOpen(index, record)}>编辑</Button>&nbsp;&nbsp;
+      <Button type="primary" size="medium" onClick={() => this.editOpen(index, record)}>编辑</Button>&nbsp;&nbsp;
       <Button type="secondary" size="medium">查看规则项</Button>
       </div>
     );
@@ -198,6 +202,9 @@ export default class RuleManageTable extends Component {
           <div style={styles.tableTitle}>规则管理</div>
         </div>
         <TableFilter handleSubmit={this.handleSubmit.bind(null,0)} />
+        <div style={styles.addBtnDiv}>
+        <Button type="primary" style={styles.addButton} onClick={this.addOpen}><Icon type="add" />新 增</Button>
+      </div>
         <CustomTable
           columns={this.columnsConfig()}
           dataSource={list}
@@ -212,8 +219,8 @@ export default class RuleManageTable extends Component {
       visible={this.state.visible}
       onOk={this.handleSubmitForEdit}
       closeable="esc,mask,close"
-      onCancel={this.onClose}
-      onClose={this.onClose}
+      onCancel={this.editClose}
+      onClose={this.editClose}
       title="编辑"
     >
       <Form field={this.field}>
@@ -228,6 +235,14 @@ export default class RuleManageTable extends Component {
         <FormItem label="规则类型：" {...formItemLayout}>
           <Input
             {...init('type', {
+              rules: [{ required: true, message: '必填选项' }],
+            })}
+          />
+        </FormItem>
+
+        <FormItem label="描述：" {...formItemLayout}>
+          <Input
+            {...init('desciption', {
               rules: [{ required: true, message: '必填选项' }],
             })}
           />
@@ -282,5 +297,12 @@ const styles = {
     display: 'inline-block',
     marginRight: '5px',
     width:'600px'
+  },
+  addBtnDiv: {
+    display: 'flex',
+    marginBottom: '20px',
+  }, 
+  addButton: {
+    background: '#2eca9c',
   },
 };

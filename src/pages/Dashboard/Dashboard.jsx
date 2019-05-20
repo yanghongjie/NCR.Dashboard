@@ -22,11 +22,8 @@ export default class Dashboard extends Component {
     return (
       <div>
         <BuilderState />
-        <BuilderDynamic />
         <BuilderTimes />
         <BuilderDistribution />
-        {/* <CoBranding />
-        <StartBanner /> */}
       </div>
     );
   }

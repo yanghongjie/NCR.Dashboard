@@ -33,20 +33,17 @@ export default class TableFilter extends Component {
           <div style={styles.filterItem}>
             <span style={styles.filterLabel}>规则类型：</span>
             <FormBinder name="ruleType">
-              <Select>
-                <Select.Option value="travis">Travis CI</Select.Option>
-                <Select.Option value="jenkins">Jenkins</Select.Option>
-              </Select>
+              <Input placeholder="请输入规则类型" />
             </FormBinder>
           </div>
 
           <div style={styles.filterItem}>
             <span style={styles.filterLabel}>状态：</span>
-            <FormBinder name="status">
-              <Select>
-                <Select.Option value="all">全部</Select.Option>
-                <Select.Option value="enable">启用</Select.Option>
-                <Select.Option value="disable">禁用</Select.Option>
+            <FormBinder name="ruleStatus">
+              <Select defaultValue="-1">
+                <Select.Option value="-1">全部</Select.Option>
+                <Select.Option value="1">启用</Select.Option>
+                <Select.Option value="0">禁用</Select.Option>
               </Select>
             </FormBinder>
           </div>

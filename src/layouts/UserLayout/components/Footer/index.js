@@ -14,7 +14,7 @@ export default () => {
           条款
         </a>
       </div>
-      <div style={styles.copyright}>阿里巴巴集团 © 2018 版权所有</div>
+      {/* <div style={styles.copyright}>阿里巴巴集团 © 2018 版权所有</div> */}
     </div>
   );
 };
