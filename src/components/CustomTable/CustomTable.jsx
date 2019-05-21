@@ -18,27 +18,13 @@ export default class Home extends Component {
     dataSource: PropTypes.array,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      current: 1,
-    };
-  }
-
   handlePagination = (current) => {
-    this.setState(
-      {
-        current,
-      },
-      () => {
-        this.props.onChange(current);
-      }
-    );
+    this.props.onChange(current);
   };
 
   render() {
-    const { isLoading, dataSource, columns,total,pageSize } = this.props;
-
+    const { isLoading, dataSource, columns,total,pageSize,current } = this.props;
+ 
     return (
       <div>
         <Table
@@ -61,7 +47,7 @@ export default class Home extends Component {
         </Table>
         <Pagination
           style={styles.pagination}
-          current={this.state.current}
+          current={current}
           total={total}
           pageSize={pageSize}
           onChange={this.handlePagination}

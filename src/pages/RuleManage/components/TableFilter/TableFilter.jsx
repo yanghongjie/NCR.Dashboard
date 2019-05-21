@@ -4,9 +4,15 @@ import { Button, Select, Input, Message } from '@alifd/next';
 import { FormBinderWrapper, FormBinder } from '@icedesign/form-binder';
 
 export default class TableFilter extends Component {
-  state = {
-    value: {},
-  };
+
+  constructor(props) {
+    super(props);
+    const {
+      handleSubmit, ...other
+    } = this.props;
+    this.state = other;
+  }
+ 
 
   handleSubmit = () => {
     const { validateFields } = this.refs.form;
@@ -15,13 +21,15 @@ export default class TableFilter extends Component {
         Message.error('查询参数错误');
         return;
       }
-      this.props.handleSubmit(values);
+
+      this.props.handleSubmit(1,values);
     });
   };
 
   render() {
+
     return (
-      <FormBinderWrapper value={this.state.value} ref="form">
+      <FormBinderWrapper value={this.state} ref="form">
         <div style={styles.tableFilter}>
           <div style={styles.filterItem}>
             <span style={styles.filterLabel}>规则名称：</span>
@@ -40,7 +48,7 @@ export default class TableFilter extends Component {
           <div style={styles.filterItem}>
             <span style={styles.filterLabel}>状态：</span>
             <FormBinder name="ruleStatus">
-              <Select defaultValue="-1">
+              <Select>
                 <Select.Option value="-1">全部</Select.Option>
                 <Select.Option value="1">启用</Select.Option>
                 <Select.Option value="0">禁用</Select.Option>
