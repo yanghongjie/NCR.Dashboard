@@ -1,6 +1,6 @@
 # ice-builder-platfrom
 
-该模板适用于云构建类的数据展示和管理后台
+使用[飞冰](https://ice.work)模板创建
 
 ## 使用
 
@@ -23,7 +23,3 @@
 - 主色：#5e83fb
 - 功能主色：#5e83fb、#f7da47、#58ca9a、#ee706d
 - 字体颜色：#333、#666
-
-## 效果图
-
-![screenshot](https://img.alicdn.com/tfs/TB16CTXx7voK1RjSZFNXXcxMVXa-2872-1580.png)
