@@ -4,7 +4,7 @@ export default class Logo extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <a href="/" style={styles.logoText}>
+        <a href="/ncr" style={styles.logoText}>
           NCR
         </a>
       </div>

@@ -37,7 +37,7 @@ const config = {
   yAxis: {
     tickInterval: 1,
     title: {
-      text: '构建次数',
+      text: '命中次数',
     },
     plotLines: [
       {

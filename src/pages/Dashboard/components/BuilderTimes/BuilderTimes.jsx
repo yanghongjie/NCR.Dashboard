@@ -39,7 +39,7 @@ const config = {
   yAxis: [
     {
       title: {
-        text: '构建次数',
+        text: '命中次数',
       },
       tickInterval: 300,
     },
@@ -100,7 +100,7 @@ export default class BuilderTimes extends Component {
     return (
       <IceContainer>
         <div style={styles.cardHead}>
-          <h4 style={styles.cardTitle}>{this.state.cardTitle}构建数</h4>
+          <h4 style={styles.cardTitle}>{this.state.cardTitle}命中次数</h4>
           <Select size="large" defaultValue="day" onChange={this.handleChange}>
             <Option value="day">24 小时</Option>
             <Option value="month">30 天</Option>

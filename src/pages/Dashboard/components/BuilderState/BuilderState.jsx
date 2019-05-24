@@ -44,31 +44,31 @@ export default class BuilderState extends Component {
 
     const todayData = [
       {
-        label: '构建量',
+        label: '规则数',
         value: '7995',
-        img: require('./images/count.png'),
+        // img: require('./images/count.png'),
       },
       {
         label: '活跃仓库',
         value: '1002',
-        img: require('./images/repo.png'),
+        // img: require('./images/repo.png'),
       },
       {
         label: '活跃用户',
         value: '735',
-        img: require('./images/user.png'),
+        // img: require('./images/user.png'),
       },
       {
         label: '活跃构建器',
         value: '55',
-        img: require('./images/builder.png'),
+        // img: require('./images/builder.png'),
       },
     ];
     return (
       <Row gutter="20">
         <Col l="12">
           <IceContainer>
-            <h4 style={styles.cardTitle}>实时构建数</h4>
+            <h4 style={styles.cardTitle}>实时规则命中数</h4>
             <SplineChart />
           </IceContainer>
         </Col>
@@ -100,7 +100,7 @@ export default class BuilderState extends Component {
                 return (
                   <Col key={index}>
                     <div style={styles.todayCard}>
-                      <img src={item.img} alt="" style={styles.todayCardIcon} />
+                      {/* <img src={item.img} alt="" style={styles.todayCardIcon} /> */}
                       <div>
                         <div style={styles.label}>{item.label}</div>
                         <div style={styles.value}>{item.value}</div>

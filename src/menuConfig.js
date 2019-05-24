@@ -5,12 +5,12 @@
 const asideMenuConfig = [
   {
     name: '首页',
-    path: '/dashboard',
+    path: '/ncr/dashboard',
     icon: 'home2',
   },
   {
     name: '规则管理',
-    path: '/rulemanage',
+    path: '/ncr/rulemanage',
     icon: 'cascades',
   },
 ];

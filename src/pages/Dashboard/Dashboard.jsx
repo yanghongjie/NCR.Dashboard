@@ -22,7 +22,7 @@ export default class Dashboard extends Component {
     return (
       <div>
         <BuilderState />
-        <BuilderTimes />
+        {/* <BuilderTimes /> */}
         <BuilderDistribution />
       </div>
     );

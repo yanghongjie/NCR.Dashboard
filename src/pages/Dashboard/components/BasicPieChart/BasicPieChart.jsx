@@ -104,7 +104,7 @@ export default class BasicPieChart extends Component {
     return (
       <IceContainer>
         <div style={styles.cardHead}>
-          <h4 style={styles.cardTitle}>Client 构建分布</h4>
+          <h4 style={styles.cardTitle}>规则分布</h4>
           <Select
             size="large"
             defaultValue="day"

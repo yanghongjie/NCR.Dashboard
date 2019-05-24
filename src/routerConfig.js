@@ -8,7 +8,7 @@ import Setting from './pages/Setting';
 import Dashboard from './pages/Dashboard';
 
 import RuleManage from './pages/RuleManage';
-
+import RuleItem from './pages/RuleManage/components/RuleItemTable';
 import New from './pages/New';
 
 const routerConfig = [
@@ -21,7 +21,7 @@ const routerConfig = [
     component: UserRegister,
   },
   {
-    path: '/dashboard',
+    path: '/ncr/dashboard',
     component: Dashboard,
   },
   {
@@ -33,8 +33,12 @@ const routerConfig = [
     component: Setting,
   },
   {
-    path: '/rulemanage',
+    path: '/ncr/rulemanage',
     component: RuleManage,
+  },
+  {
+    path: '/ncr/ruleItem/:ruleid',
+    component: RuleItem,
   },
 ];
 
