@@ -1,6 +1,6 @@
 # ice-builder-platfrom
 
-使用[飞冰](https://ice.work)模板创建
+使用 [飞冰](https://ice.work) 模板创建
 
 ## 使用
 
