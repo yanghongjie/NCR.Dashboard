@@ -8,12 +8,13 @@ import DataBinder from '@icedesign/data-binder';
 import { Switch, Button, Icon, Message, Dialog, Form, Field, Input, NumberPicker } from '@alifd/next';
 import IceLabel from '@icedesign/label';
 import moment from 'moment'
+import apiconfig from '../../../../common/apiconfig';
 const FormItem = Form.Item;
 
+console.log(apiconfig.GetRuleList);
 @DataBinder({
   ruleData: {
-    //url: 'http://localhost:33304/RuleManage/GetRuleList',
-    url: '/RuleManage/GetRuleList',
+    url: apiconfig.GetRuleList,
     method: 'POST',
     data: {
       pageIndex: 0,
@@ -88,8 +89,7 @@ export default class RuleManageTable extends Component {
         return;
       }
       const that = this;
-      // axios.post('http://localhost:33304/RuleManage/SaveRule', values)
-      axios.post('/RuleManage/SaveRule', values)
+      axios.post(apiconfig.SaveRule, values)
         .then(function ({ data }) {
           if (data.success) {
             that.editClose();

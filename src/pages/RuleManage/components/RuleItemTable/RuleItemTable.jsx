@@ -7,12 +7,12 @@ import moment from 'moment'
 import CustomTable from '../../../../components/CustomTable';
 import DataBinder from '@icedesign/data-binder';
 import axios from 'axios';
+import apiconfig from '../../../../common/apiconfig';
 const FormItem = Form.Item;
 
 @DataBinder({
   ruleItemData: {
-    // url: 'http://localhost:33304/RuleManage/GetRuleById',
-    url: '/RuleManage/GetRuleById',
+    url: apiconfig.GetRuleById,
     method: 'POST',
     data: {
       ruleId: 0
@@ -68,8 +68,7 @@ export default class RuleItemTable extends Component {
         return;
       }
       const that = this;
-      // axios.post('http://localhost:33304/RuleManage/SaveRuleItem', values)
-      axios.post('/RuleManage/SaveRuleItem', values)
+      axios.post(apiconfig.SaveRuleItem, values)
         .then(function ({ data }) {
           if (data.success) {
             that.editClose();
