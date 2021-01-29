@@ -38,7 +38,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.2.5",
     "enquire-js": "^0.1.2",
-    "highcharts": "^6.1.1",
+    "highcharts": "^7.2.2",
     "moment": "^2.23.0",
     "prop-types": "^15.5.8",
     "react": "^16.4.1",
